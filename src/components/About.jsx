@@ -48,7 +48,7 @@ export default function About() {
 
       <img
         className="about-phoenix-watermark"
-        src="/logo.svg"
+        src={`${import.meta.env.BASE_URL}logo.svg`}
         alt=""
         aria-hidden="true"
         width="960"
