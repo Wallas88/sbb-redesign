@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { IconMail } from '../icons.jsx';
 import { SITE } from '../site.js';
+import { FLOATING_CTA } from '../content.js';
 
 export default function FloatingCTA() {
   const [heroButtonHidden, setHeroButtonHidden] = useState(false);
@@ -75,10 +76,10 @@ export default function FloatingCTA() {
     <a
       className={`floating-cta ${shouldShow ? 'visible' : ''}`}
       href={`mailto:${SITE.email}`}
-      aria-label="Email Salome Becker"
+      aria-label={FLOATING_CTA.ariaLabel}
       aria-hidden={!shouldShow}
       tabIndex={shouldShow ? 0 : -1}
-      title="Email Salome"
+      title={FLOATING_CTA.title}
     >
       <IconMail aria-hidden="true" />
     </a>

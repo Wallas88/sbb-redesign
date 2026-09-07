@@ -1,37 +1,5 @@
-import { IconBriefcase, IconCloud, IconWorkflow, IconCheck } from '../icons.jsx';
-
-const SERVICES = [
-  {
-    icon: IconBriefcase,
-    title: 'Freelance Contract Work',
-    blurb: 'Project-based work for teams and businesses.',
-    items: [
-      ['Flexible timelines', 'Adapt to your schedule'],
-      ['Full ownership', 'Take control of your project'],
-      ['Clear deliverables', "Know what you're getting"],
-    ],
-  },
-  {
-    icon: IconCloud,
-    title: 'Cloud Integrations',
-    blurb: 'Serverless APIs and event-driven pipelines on AWS.',
-    items: [
-      ['Lambda', 'Serverless compute functions'],
-      ['EventBridge', 'Event routing and processing'],
-      ['Observability', 'Monitoring, logs, and alerts'],
-    ],
-  },
-  {
-    icon: IconWorkflow,
-    title: 'Accounting Automation',
-    blurb: 'OAuth flows and automation for finance systems.',
-    items: [
-      ['OAuth', 'Secure authentication flows'],
-      ['Document workflows', 'Automated file handling'],
-      ['Production-ready', 'Built to scale and handle failures'],
-    ],
-  },
-];
+import { IconCheck } from '../icons.jsx';
+import { SERVICES } from '../content.js';
 
 export default function Services() {
   return (
@@ -40,13 +8,13 @@ export default function Services() {
         <div className="section-head">
           <span className="eyebrow">
             <span className="dot" />
-            WHAT I DO
+            {SERVICES.eyebrow}
           </span>
-          <h2>Pick one, or mix them — most work is a blend.</h2>
+          <h2>{SERVICES.heading}</h2>
         </div>
 
         <div className="services-grid">
-          {SERVICES.map((service) => {
+          {SERVICES.items.map((service) => {
             const ServiceIcon = service.icon;
             return (
               <article className="service-card" key={service.title}>
