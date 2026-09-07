@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
 import { IconMenu, IconClose } from '../icons.jsx';
 import { SITE } from '../site.js';
-
-const LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
-];
+import { NAV_LINKS } from '../content.js';
+import logo from '../assets/logo.svg';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,7 +31,7 @@ export default function Navbar() {
       <div className="container navbar-inner">
         <a href="#top" className="brand" onClick={close} aria-label={`${SITE.name} home`}>
           <span className="brand-mark" aria-hidden="true">
-            <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="" width="240" height="156" />
+            <img src={logo} alt="" width="240" height="156" />
           </span>
           <span className="brand-copy">
             <span className="brand-text-name">{SITE.name}</span>
@@ -44,7 +40,7 @@ export default function Navbar() {
         </a>
 
         <nav className="nav-links" aria-label="Primary navigation">
-          {LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href}>
               {link.label}
             </a>
@@ -65,7 +61,7 @@ export default function Navbar() {
 
       <div id="mobile-navigation" className={`mobile-menu ${open ? 'open' : ''}`}>
         <nav className="container mobile-menu-inner" aria-label="Mobile navigation">
-          {LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} onClick={close}>
               {link.label}
             </a>

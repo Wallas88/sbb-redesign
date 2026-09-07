@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { IconMail, IconCopy, IconPin } from '../icons.jsx';
 import { SITE } from '../site.js';
+import { CONTACT } from '../content.js';
 
 function fallbackCopy(text) {
   const textarea = document.createElement('textarea');
@@ -35,19 +36,19 @@ export default function Contact() {
       copied = fallbackCopy(SITE.email);
     }
 
-    setCopyStatus(copied ? 'Copied to clipboard' : 'Copy failed — use the email link');
+    setCopyStatus(copied ? CONTACT.copiedMessage : CONTACT.copyFailedMessage);
     window.clearTimeout(statusTimer.current);
     statusTimer.current = window.setTimeout(() => setCopyStatus(''), 2400);
   };
 
-  const copied = copyStatus === 'Copied to clipboard';
+  const copied = copyStatus === CONTACT.copiedMessage;
 
   return (
     <section className="section" id="contact">
       <div className="container">
         <div className="contact-card">
           <div>
-            <h2>Let's build something.</h2>
+            <h2>{CONTACT.heading}</h2>
             <div className="contact-meta">
               <span className="contact-meta-item">
                 <IconMail aria-hidden="true" /> <span>{SITE.email}</span>
@@ -60,7 +61,7 @@ export default function Contact() {
 
           <div className="contact-actions">
             <a className="btn btn-primary" href={`mailto:${SITE.email}`}>
-              <IconMail aria-hidden="true" /> Email me
+              <IconMail aria-hidden="true" /> {CONTACT.primaryCta}
             </a>
             <button
               className="btn btn-secondary"
@@ -68,7 +69,7 @@ export default function Contact() {
               onClick={copyEmail}
               aria-describedby="copy-email-status"
             >
-              <IconCopy aria-hidden="true" /> {copied ? 'Copied!' : 'Copy email'}
+              <IconCopy aria-hidden="true" /> {copied ? CONTACT.copiedCta : CONTACT.copyCta}
             </button>
             <div id="copy-email-status" className="copy-feedback" aria-live="polite">
               {copyStatus}
