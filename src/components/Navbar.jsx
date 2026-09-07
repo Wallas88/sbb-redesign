@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="container navbar-inner">
         <a href="#top" className="brand" onClick={close} aria-label={`${SITE.name} home`}>
           <span className="brand-mark" aria-hidden="true">
-            <img src="/logo.svg" alt="" width="240" height="156" />
+            <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="" width="240" height="156" />
           </span>
           <span className="brand-copy">
             <span className="brand-text-name">{SITE.name}</span>
