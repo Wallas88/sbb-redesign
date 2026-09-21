@@ -1026,13 +1026,11 @@ a.contact-meta-item:hover {
     font-size: 15px;
   }
 
+  /* Stacked on phones, each button at its natural width and padding
+     rather than stretching edge to edge, centred under the copy. */
   .hero-actions {
     flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
+    align-items: center;
   }
 
   .hero-checks {
